@@ -7,3 +7,6 @@ The actions runs when a new tag is created.
 git tag v0.1.0
 git push origin v0.1.0
 ```
+
+## Notes
+Remember to give read and write permission to the workflow. This option is located in the `Settings` > `Actions` > `General` > `Workflow permissions` of the repository.
