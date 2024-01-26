@@ -47,12 +47,14 @@ jobs:
         context: .
         tags: ${{ steps.meta.outputs.tags }}
         outputs: type=tar,dest=image.tar
+    - name: Compress image tar
+      run: gzip image.tar
     - name: Create Github Release
       uses: softprops/action-gh-release@v1
       if: startsWith(github.ref, 'refs/tags/')
       with:
         files: |
           README.md
-          image.tar
+          image.tar.gz
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
